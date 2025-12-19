@@ -26,7 +26,7 @@ This project is intended to demonstrate:
 - Frontend implementation skills
 
 ## Live Demo
-(Add Netlify link here)
+(https://rto-management.onrender.com)
 
 ## Author
 Deepika G K
