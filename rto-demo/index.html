@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTO Management System - UI Demo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="./logo.jpg" alt="RTO Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-fallback" style="display:none;">🏛️</div>
+                </div>
+                <div class="logo-text">
+                    <h1>RTO Management System</h1>
+                    <span class="demo-badge">UI Demo / Portfolio Project</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('login')">Login</a>
+                <a href="#" onclick="showPage('llr')">Learner's License</a>
+                <a href="#" onclick="showPage('dl')">Driving License</a>
+                <a href="#" onclick="showPage('vehicle')">Vehicle Registration</a>
+                <a href="#" onclick="showPage('status')">Status Check</a>
+                <a href="#" onclick="showPage('admin')">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h2>Welcome to RTO Management System</h2>
+                <p>Your one-stop solution for all RTO services including Learner's License, Driving License, and Vehicle Registration.</p>
+                <div class="services">
+                    <div class="service-card">
+                        <h3>Learner's License</h3>
+                        <p>Apply for your learner's license online</p>
+                        <button onclick="showPage('login')">Apply Now</button>
+                    </div>
+                    <div class="service-card">
+                        <h3>Driving License</h3>
+                        <p>Get your permanent driving license</p>
+                        <button onclick="showPage('login')">Apply Now</button>
+                    </div>
+                    <div class="service-card">
+                        <h3>Vehicle Registration</h3>
+                        <p>Register your new vehicle</p>
+                        <button onclick="showPage('login')">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login" class="page">
+        <div class="container">
+            <div class="form-container">
+                <h2>Citizen Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="aadhaar">Aadhaar Number</label>
+                        <input type="text" id="aadhaar" placeholder="Enter 12-digit Aadhaar number" maxlength="12">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter password">
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learner's License Page -->
+    <div id="llr" class="page">
+        <div class="container">
+            <div class="form-container">
+                <h2>Apply for Learner's License</h2>
+                <div class="eligibility-notice">
+                    <p><strong>Age Eligibility:</strong> Minimum 18 years required for LLR application</p>
+                </div>
+                <form id="llrForm">
+                    <div class="form-group">
+                        <label for="cov-llr">Category of Vehicle (COV)</label>
+                        <select id="cov-llr">
+                            <option value="">Select Category</option>
+                            <option value="motorcycle">Motorcycle (MCWG)</option>
+                            <option value="car">Light Motor Vehicle (LMV)</option>
+                            <option value="commercial">Commercial Vehicle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name-llr">Full Name</label>
+                        <input type="text" id="name-llr" placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob-llr">Date of Birth</label>
+                        <input type="date" id="dob-llr">
+                    </div>
+                    <button type="submit">Submit Application</button>
+                </form>
+                
+                <div id="llr-result" class="result-container" style="display: none;">
+                    <h3>Application Submitted Successfully!</h3>
+                    <div class="test-details">
+                        <p><strong>Test Date:</strong> <span id="test-date"></span></p>
+                        <p><strong>Exam ID:</strong> <span id="exam-id"></span></p>
+                        <p><strong>Venue:</strong> <span id="venue"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Driving License Page -->
+    <div id="dl" class="page">
+        <div class="container">
+            <div class="form-container">
+                <h2>Apply for Driving License</h2>
+                <div class="validity-notice">
+                    <p><strong>LLR Validity:</strong> Your Learner's License is valid and eligible for DL application</p>
+                </div>
+                <form id="dlForm">
+                    <div class="form-group">
+                        <label for="llr-number">LLR Number</label>
+                        <input type="text" id="llr-number" placeholder="Enter LLR number">
+                    </div>
+                    <div class="form-group">
+                        <label for="cov-dl">Category of Vehicle</label>
+                        <select id="cov-dl">
+                            <option value="">Select Category</option>
+                            <option value="motorcycle">Motorcycle (MCWG)</option>
+                            <option value="car">Light Motor Vehicle (LMV)</option>
+                            <option value="commercial">Commercial Vehicle</option>
+                        </select>
+                    </div>
+                    <button type="submit">Book Test Slot</button>
+                </form>
+                
+                <div id="dl-result" class="result-container" style="display: none;">
+                    <h3>Test Slot Booked Successfully!</h3>
+                    <div class="slot-details">
+                        <p><strong>Test Date:</strong> <span id="dl-test-date"></span></p>
+                        <p><strong>Time Slot:</strong> <span id="time-slot"></span></p>
+                        <p><strong>Test Center:</strong> <span id="test-center"></span></p>
+                        <p><strong>Booking ID:</strong> <span id="booking-id"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Registration Page -->
+    <div id="vehicle" class="page">
+        <div class="container">
+            <div class="form-container">
+                <h2>Vehicle Registration</h2>
+                <form id="vehicleForm">
+                    <div class="form-group">
+                        <label for="vehicle-cov">Category of Vehicle</label>
+                        <select id="vehicle-cov">
+                            <option value="">Select Category</option>
+                            <option value="motorcycle">Motorcycle</option>
+                            <option value="car">Car</option>
+                            <option value="truck">Truck</option>
+                            <option value="bus">Bus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-company">Vehicle Company</label>
+                        <input type="text" id="vehicle-company" placeholder="e.g., Honda, Maruti, Tata">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-model">Vehicle Model</label>
+                        <input type="text" id="vehicle-model" placeholder="e.g., City, Swift, Nexon">
+                    </div>
+                    <div class="form-group">
+                        <label for="engine-number">Engine Number</label>
+                        <input type="text" id="engine-number" placeholder="Enter engine number">
+                    </div>
+                    <div class="form-group">
+                        <label for="chassis-number">Chassis Number</label>
+                        <input type="text" id="chassis-number" placeholder="Enter chassis number">
+                    </div>
+                    <button type="submit">Submit Registration</button>
+                </form>
+                
+                <div id="vehicle-result" class="result-container" style="display: none;">
+                    <h3>Vehicle Registration Submitted!</h3>
+                    <div class="registration-details">
+                        <p><strong>Application ID:</strong> <span id="app-id"></span></p>
+                        <p><strong>Status:</strong> Under Review</p>
+                        <p><strong>Expected Processing Time:</strong> 7-10 working days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Check Page -->
+    <div id="status" class="page">
+        <div class="container">
+            <div class="form-container">
+                <h2>Application Status Check</h2>
+                <form id="statusForm">
+                    <div class="form-group">
+                        <label for="status-aadhaar">Aadhaar Number</label>
+                        <input type="text" id="status-aadhaar" placeholder="Enter Aadhaar number" maxlength="12">
+                    </div>
+                    <div class="form-group">
+                        <label for="status-password">Password</label>
+                        <input type="password" id="status-password" placeholder="Enter password">
+                    </div>
+                    <button type="submit">Check Status</button>
+                </form>
+                
+                <div id="status-result" class="result-container" style="display: none;">
+                    <h3>Application Status</h3>
+                    <div class="status-list">
+                        <div class="status-item">
+                            <span class="app-type">Learner's License</span>
+                            <span class="status approved" id="llr-status">Approved</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="app-type">Driving License</span>
+                            <span class="status pending" id="dl-status">Pending</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="app-type">Vehicle Registration</span>
+                            <span class="status approved" id="vehicle-status">Approved</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleStatus()">Toggle Status (Demo)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin" class="page">
+        <div class="container">
+            <h2>Admin / Inspector Dashboard</h2>
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3>Pending Applications</h3>
+                    <span class="stat-number">24</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Approved Today</h3>
+                    <span class="stat-number">18</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Applications</h3>
+                    <span class="stat-number">156</span>
+                </div>
+            </div>
+            
+            <div class="applications-table">
+                <h3>Recent Applications</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Application ID</th>
+                            <th>Type</th>
+                            <th>Applicant</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LLR001234</td>
+                            <td>Learner's License</td>
+                            <td>John Doe</td>
+                            <td>2024-01-15</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="approve-btn" onclick="approveApplication(this)">Approve</button>
+                                <button class="reject-btn" onclick="rejectApplication(this)">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DL005678</td>
+                            <td>Driving License</td>
+                            <td>Jane Smith</td>
+                            <td>2024-01-14</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="approve-btn" onclick="approveApplication(this)">Approve</button>
+                                <button class="reject-btn" onclick="rejectApplication(this)">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>VR009876</td>
+                            <td>Vehicle Registration</td>
+                            <td>Mike Johnson</td>
+                            <td>2024-01-13</td>
+                            <td><span class="status approved">Approved</span></td>
+                            <td>
+                                <button disabled>Processed</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>This is a simulated UI demonstration created for portfolio purposes only.</p>
+            <p>&copy; 2024 RTO Management System Demo. No real data or transactions are processed.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
