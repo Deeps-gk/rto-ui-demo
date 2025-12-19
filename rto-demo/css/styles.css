@@ -416,6 +416,21 @@ button:disabled {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .header .container {
         flex-direction: column;
@@ -424,33 +439,159 @@ button:disabled {
 
     .logo {
         justify-content: center;
+        text-align: center;
     }
 
     .logo-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .demo-badge {
+        font-size: 0.65rem;
     }
 
     .nav {
         justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .page {
+        padding: 1rem 0;
+    }
+
+    .hero {
+        padding: 2rem 0;
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
     .services {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
     }
 
     .admin-stats {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+
+    .applications-table {
+        padding: 1rem;
     }
 
     table {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     th, td {
+        padding: 0.6rem 0.4rem;
+    }
+
+    .approve-btn, .reject-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .status-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text h1 {
+        font-size: 1.1rem;
+    }
+
+    .logo-img, .logo-fallback {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .nav a {
         padding: 0.5rem;
+        font-size: 0.8rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .form-container {
+        padding: 1rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .service-card button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    th, td {
+        padding: 0.5rem 0.3rem;
+    }
+
+    .approve-btn, .reject-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.3rem;
     }
 }
